@@ -132,17 +132,6 @@ classes: portfolio-narrow
   <span class="tech-tag">{{ tech.name }}</span>
 {% endfor %}
 
-## 项目背景
-心血管疾病（CVD）是ICU糖尿病患者的主要死亡原因，早期预测CVD风险对ICU患者至关重要，有助于临床决策和靶向干预。
-
-## 核心实现
-<div class="section-title">数据清洗</div>
-<div class="code-block">
-```python
-# 数据清洗
-df = df.dropna()
-df = df.drop(columns=['patient_id'])
-```
 
 ## 项目背景
 心血管疾病（CVD）是ICU糖尿病患者的主要死亡原因，早期预测CVD风险对ICU患者至关重要，有助于临床决策和靶向干预。
