@@ -40,15 +40,51 @@ df = df.drop(columns=['patient_id'])
 
 ### 特征工程与LASSO特征选择
 ```python
-# 处理分类特征
-df = pd.get_dummies(df, prefix=True)
+scaler = StandardScaler()
+x_df = data[num_cols + cat_cols + other_cvd_col]
+feature_names = x_df.columns.tolist()
+
+x_train_df, x_test_df, y_train, y_test = train_test_split(x_df, y, test_size=0.2, random_state=2025, stratify=y)
+
+ohe = OneHotEncoder(drop='first', handle_unknown='ignore', sparse_output=False)  
+x_train_cat_encoded = ohe.fit_transform(x_train_df[cat_cols])
+x_test_cat_encoded = ohe.transform(x_test_df[cat_cols])
+cat_encoded_cols = ohe.get_feature_names_out(cat_cols).tolist()
+X_train_cat_df = pd.DataFrame(
+    x_train_cat_encoded,
+    columns=cat_encoded_cols,
+    index=x_train_df.index
+).astype(np.float32)
+
+X_test_cat_df = pd.DataFrame(
+    x_test_cat_encoded,
+    columns=cat_encoded_cols,
+    index=x_test_df.index
+).astype(np.float32)
+
+# 标准化数值变量
+scaler = StandardScaler()
+X_train_scaled_num = scaler.fit_transform(x_train_df[num_cols])
+X_test_scaled_num = scaler.transform(x_test_df[num_cols])  # 使用训练集的 scaler
+X_train_num_df = pd.DataFrame(
+    X_train_scaled_num,
+    columns=num_cols,
+    index=x_train_df.index
+).astype(np.float32)
+
+X_test_num_df = pd.DataFrame(
+    X_test_scaled_num,
+    columns=num_cols,
+    index=x_test_df.index
+).astype(np.float32)
+
+# 合并数值和编码后的分类变量
+X_train_scaled_df = pd.concat([X_train_num_df, X_train_cat_df], axis=1)
+X_test_scaled_df = pd.concat([X_test_num_df, X_test_cat_df], axis=1)
 
 # LASSO特征选择
 X = df.drop(columns=['cvd'])
 Y = df['cvd']
-
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
 
 lasso = Lasso(alpha=0.1)
 lasso.fit(X_scaled, Y)
@@ -59,17 +95,33 @@ X_selected = X[selected_features]
 
 ### XGBoost模型构建与评估
 ```python
-# 数据集划分
-X_train, X_test, Y_train, Y_test = train_test_split(X_selected, Y, test_size=0.2, random_state=42)
-
 # 训练XGBoost模型
-xgb_model = XGBClassifier(n_estimators=100, learning_rate=0.1, random_state=42)
-xgb_model.fit(X_train, Y_train)
+xgb_params_best = {
+            "learning_rate": bestparams["eta"],
+            "booster": bestparams["booster"],
+            "colsample_bytree": bestparams["colsample_bytree"],
+            "colsample_bynode": bestparams["colsample_bynode"],
+            "gamma": bestparams["gamma"],
+            "reg_lambda": bestparams["lambda"],
+            "min_child_weight": bestparams["min_child_weight"],
+            "max_depth": int(bestparams["max_depth"]),
+            "subsample": bestparams["subsample"],
+            "objective": "binary:logistic",
+            "rate_drop": bestparams["rate_drop"],
+            "n_estimators": int(bestparams["num_boost_round"]),
+            "verbosity": 0,
+            "eval_metric": "auc",
+            "base_score": 0.5
+        }
+model = XGBClassifier(**xgb_params_best, random_state=2025)
+model.fit(X_train, y_train)
 
 # 模型评估
-Y_proba = xgb_model.predict_proba(X_test)[:, 1]
-roc_auc = roc_auc_score(Y_test, Y_proba)
-print(f'ROC-AUC: {roc_auc:.2f}')
+fpr1, tpr1, _ = roc_curve(y_test, y_pred_proba_1)
+fpr2, tpr2, _ = roc_curve(y_test, y_pred_proba_2)
+auc1 = roc_auc_score(y_test, y_pred_proba_1)
+auc2 = roc_auc_score(y_test, y_pred_proba_2)
+print(f'ROC-AUC: {auc1:.3f}')
 ```
 
 ## 分析结果
