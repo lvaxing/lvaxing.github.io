@@ -2,17 +2,15 @@
  * @Author: Lvaxing axing_lv@163.com
  * @Date: 2026-01-15 14:39:52
  * @LastEditors: Lvaxing axing_lv@163.com
- * @LastEditTime: 2026-01-15 15:44:37
+ * @LastEditTime: 2026-01-15 15:51:31
  * @FilePath: \undefinede:\github repository\myintro\_portfolio\icu-diabetes-cvd-prediction.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 
 
----
-
-### 生成的Portfolio Markdown文件内容
 
 ```yaml
+---
 title: "ICU糖尿病人群CVD预测模型：LASSO-XGBoost"
 collection: portfolio
 type: "Machine Learning"
@@ -125,6 +123,5 @@ SHAP显示，BUN、年龄、硝酸甘油和他汀药物是影响CVD风险的最�
 3. 未来工作可纳入更多临床数据（如基因数据、影像数据），并探索深度学习模型以进一步提高预测准确性。
 ```
 
----
 
 
