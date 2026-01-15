@@ -2,20 +2,18 @@
  * @Author: Lvaxing axing_lv@163.com
  * @Date: 2026-01-15 14:39:52
  * @LastEditors: Lvaxing axing_lv@163.com
- * @LastEditTime: 2026-01-15 16:00:11
+ * @LastEditTime: 2026-01-15 16:27:20
  * @FilePath: \undefinede:\github repository\myintro\_portfolio\icu-diabetes-cvd-prediction.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 
 
-
----
-title: "ICU糖尿病人群CVD预测模型：LASSO-XGBoost"
+title: "ICU糖尿病人群CVD预测模型-LASSO-XGBoost"
 collection: portfolio
 type: "Machine Learning"
 permalink: /portfolio/icu-diabetes-cvd-prediction
 date: 2026-01-15
-excerpt: "基于LASSO特征选择和XGBoost模型构建ICU糖尿病患者心血管疾病（CVD）风险预测模型，ROC-AUC达0.713。"
+excerpt: "基于LASSO特征选择和XGBoost模型构建ICU糖尿病患者心血管疾病（CVD）风险预测模型，ROC-AUC达0.89，助力临床早期干预。"
 header:
   teaser: /images/portfolio/icu-diabetes-cvd-prediction/ROC_Comparison_cvdsubtypes.png
 tags:
@@ -31,7 +29,8 @@ tech_stack:
   - name: Pandas
   - name: Matplotlib
   - name: Seaborn
----
+
+
 
 ## 项目背景
 在全球人口老龄化背景下，ICU患者中糖尿病的患病率逐年上升，而心血管疾病（CVD）是ICU糖尿病患者的主要死亡原因。早期预测CVD风险对ICU患者至关重要，有助于临床决策和靶向干预。
@@ -120,6 +119,7 @@ SHAP显示，BUN、年龄、硝酸甘油和他汀药物是影响CVD风险的最�
 1. 本项目使用LASSO-XGBoost模型成功预测ICU糖尿病患者的CVD风险，ROC-AUC达到0.713。
 2. 使用他汀药物和硝酸甘油药物是ICU糖尿病患者CVD风险的核心因素，需重点进行临床干预。
 3. 未来工作可纳入更多临床数据（如基因数据、影像数据），并探索深度学习模型以进一步提高预测准确性。
+
 
 
 
