@@ -25,6 +25,124 @@ layout: single
 classes: portfolio-narrow
 ---
 
+<!-- 自定义样式 -->
+<style>
+/* 全局样式优化 */
+.portfolio-narrow {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #2d3748;
+}
+
+/* 标题样式 */
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2c5282;
+  border-bottom: 3px solid #3182ce;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 子标题样式 */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2b6cb0;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 20px;
+  background-color: #3182ce;
+  border-radius: 4px;
+}
+
+/* 代码块样式优化 */
+.code-block {
+  background-color: #f7fafc;
+  border-radius: 8px;
+  padding: 1rem;
+  border-left: 4px solid #3182ce;
+  margin: 1rem 0;
+  overflow-x: auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* 图片样式优化 */
+.img-container {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.img-container img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.img-container img:hover {
+  transform: scale(1.02);
+}
+
+.img-caption {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #4a5568;
+  font-style: italic;
+}
+
+/* 技术栈标签 */
+.tech-tag {
+  display: inline-block;
+  background-color: #e6f7ff;
+  color: #2b6cb0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin: 0.3rem 0.2rem;
+  font-size: 0.9rem;
+}
+
+/* 结论区块 */
+.conclusion-box {
+  background-color: #f0f8fb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 1px solid #bee3f8;
+}
+</style>
+
+<!-- 页面主体内容 -->
+<h1 class="page-title">ICU糖尿病人群CVD预测模型: LASSO-XGBoost</h1>
+
+<!-- 技术栈展示 -->
+<div class="section-title">核心技术栈</div>
+{% for tech in page.tech_stack %}
+  <span class="tech-tag">{{ tech.name }}</span>
+{% endfor %}
+
+## 项目背景
+心血管疾病（CVD）是ICU糖尿病患者的主要死亡原因，早期预测CVD风险对ICU患者至关重要，有助于临床决策和靶向干预。
+
+## 核心实现
+<div class="section-title">数据清洗</div>
+<div class="code-block">
+```python
+# 数据清洗
+df = df.dropna()
+df = df.drop(columns=['patient_id'])
+```
 
 ## 项目背景
 心血管疾病（CVD）是ICU糖尿病患者的主要死亡原因，早期预测CVD风险对ICU患者至关重要，有助于临床决策和靶向干预。
