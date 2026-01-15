@@ -129,6 +129,7 @@ df = df.dropna()
 df = df.drop(columns=['patient_id'])
 ```
 
+
 ### 特征工程与LASSO特征选择
 ```python
 scaler = StandardScaler()
