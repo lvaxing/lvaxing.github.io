@@ -2,7 +2,7 @@
  * @Author: Lvaxing axing_lv@163.com
  * @Date: 2026-01-15 14:39:52
  * @LastEditors: Lvaxing axing_lv@163.com
- * @LastEditTime: 2026-01-15 15:34:27
+ * @LastEditTime: 2026-01-15 15:40:24
  * @FilePath: \undefinede:\github repository\myintro\_portfolio\icu-diabetes-cvd-prediction.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -99,7 +99,7 @@ print(f'ROC-AUC: {roc_auc:.2f}')
 ![ROC曲线](/images/portfolio/icu-diabetes-cvd-prediction/ROC_Comparison.png)
 LASSO-XGBoost预测CVD的AUROC=0.713。
 
-![亚型ROC曲线](/images/portfolio/icu-diabetes-cvd-prediction/ROC_Comparison.png)
+![亚型ROC曲线](/images/portfolio/icu-diabetes-cvd-prediction/ROC_Comparison_cvdsubtypes.png)
 LASSO-XGBoost预测HF的AUROC=0.710，MI的AUROC=0.685，IS的AUROC=0.655。
 
 ### PRC曲线
