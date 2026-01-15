@@ -7,7 +7,7 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 
-
+---
 title: "ICU糖尿病人群CVD预测模型-LASSO-XGBoost"
 collection: portfolio
 type: "Machine Learning"
@@ -29,7 +29,7 @@ tech_stack:
   - name: Pandas
   - name: Matplotlib
   - name: Seaborn
-
+---
 
 
 ## 项目背景
