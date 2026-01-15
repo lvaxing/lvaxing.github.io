@@ -2,14 +2,14 @@
  * @Author: Lvaxing axing_lv@163.com
  * @Date: 2026-01-15 14:39:52
  * @LastEditors: Lvaxing axing_lv@163.com
- * @LastEditTime: 2026-01-15 15:51:31
+ * @LastEditTime: 2026-01-15 15:56:06
  * @FilePath: \undefinede:\github repository\myintro\_portfolio\icu-diabetes-cvd-prediction.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 
 
 
-```yaml
+
 ---
 title: "ICU糖尿病人群CVD预测模型：LASSO-XGBoost"
 collection: portfolio
